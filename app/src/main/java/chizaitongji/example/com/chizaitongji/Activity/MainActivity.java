@@ -22,6 +22,7 @@ import chizaitongji.example.com.chizaitongji.Fragment.Fragment_ThirdGroup.Fragme
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_SecondGroup.Fragment_RootSecond;
 import chizaitongji.example.com.chizaitongji.R;
+import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation.SupportHelper;
@@ -35,7 +36,7 @@ public class MainActivity extends SupportActivity
     private BottomNavigationBar bottomNavigationBar;
     private FragmentManager fragmentManager;
     private SupportFragment[] mFragments = new SupportFragment[3];
-
+    private Toolbar toolbar;
     int curFragment = FIRST;
     int prePosition = FIRST;
 
@@ -132,9 +133,12 @@ public class MainActivity extends SupportActivity
         return true;
     }
 
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -193,8 +197,8 @@ public class MainActivity extends SupportActivity
                 }
 // 这里推荐使用EventBus来实现 -> 解耦
                 if (count == 1) {
-                    // 在FirstPagerFragment中接收, 因为是嵌套的孙子Fragment 所以用EventBus比较方便
-                    // 主要为了交互: 重选tab 如果列表不在顶部则移动到顶部,如果已经在顶部,则刷新
+                    //在FirstPagerFragment中接收, 因为是嵌套的孙子Fragment 所以用EventBus比较方便
+                    //主要为了交互: 重选tab 如果列表不在顶部则移动到顶部,如果已经在顶部,则刷新
                     //EventBusActivityScope.getDefault(MainActivity.this).post(new TabSelectedEvent(position));
                 }
             }
@@ -210,6 +214,7 @@ public class MainActivity extends SupportActivity
 
     @Override
     public void onBackPressedSupport() {
+        Log.d(TAG, "在这儿按下了back");
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             pop();
         } else {

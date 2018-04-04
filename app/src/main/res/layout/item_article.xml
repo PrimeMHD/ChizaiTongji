@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="0.3dp"
+    android:background="@color/colorWhiteBackground">
+
+    <ImageView
+        android:id="@+id/imageView_article"
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/cirsquare_nocolor"
+        android:contentDescription="封面图"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/imageView_article"
+        android:layout_marginEnd="5dp"
+        android:textSize="22sp"
+        android:textColor="@color/colorTextBlack" />
+
+    <TextView
+        android:id="@+id/textView_abstraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/textView_title"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/imageView_article"
+        android:layout_marginEnd="5dp"
+        android:textSize="13sp"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/textView_articleDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="13dp" />
+
+</RelativeLayout>

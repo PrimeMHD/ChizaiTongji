@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import chizaitongji.example.com.chizaitongji.Bean.CanteenThumbnail;
+import chizaitongji.example.com.chizaitongji.Listener.OnItemClickListener;
 import chizaitongji.example.com.chizaitongji.R;
 
 /**
@@ -21,6 +22,7 @@ import chizaitongji.example.com.chizaitongji.R;
 public class CanteenThumbnailAdapter extends RecyclerView.Adapter<CanteenThumbnailAdapter.MyViewHolder> {
 
     private List<CanteenThumbnail> canteenThumbnailList;//存放数据
+    private OnItemClickListener mClickListener;
 
 
     public CanteenThumbnailAdapter(List<CanteenThumbnail> canteenThumbnailList) {
@@ -28,11 +30,23 @@ public class CanteenThumbnailAdapter extends RecyclerView.Adapter<CanteenThumbna
 
     }
 
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
+    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.item_canteenthumbnail, parent, false);
-        MyViewHolder holder = new MyViewHolder(view);
+        final MyViewHolder holder = new MyViewHolder(view);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final int position = holder.getAdapterPosition();
+                if (mClickListener != null) {
+                    mClickListener.onItemClick(position, view, holder);
+                }
+            }
+        });
         return holder;
     }
 
@@ -44,8 +58,11 @@ public class CanteenThumbnailAdapter extends RecyclerView.Adapter<CanteenThumbna
     public void onBindViewHolder(MyViewHolder holder, int position) {
         //设置显示内容为list里的对应项
         CanteenThumbnail canteenThumbnail = canteenThumbnailList.get(position);
+
         holder.imageView_canteenthumbnail.setImageResource(canteenThumbnail.getImageId());
-        holder.textView_canteeninfo.setText(canteenThumbnail.getCanteenInfo());
+
+//        holder.imageView_canteenthumbnail.setImageResource(canteenThumbnail.getImageId());
+        //holder.textView_canteeninfo.setText(canteenThumbnail.getCanteenInfo());
         holder.textView_canteenname.setText(canteenThumbnail.getCanteenName());
         //子项的点击事件监听
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -66,12 +83,12 @@ public class CanteenThumbnailAdapter extends RecyclerView.Adapter<CanteenThumbna
     static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView_canteenthumbnail;
         TextView textView_canteenname;
-        TextView textView_canteeninfo;
+        //TextView textView_canteeninfo;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             textView_canteenname = itemView.findViewById(R.id.textView_canteenname);
-            textView_canteeninfo = itemView.findViewById(R.id.textView_canteeninfo);
+            //textView_canteeninfo = itemView.findViewById(R.id.textView_canteeninfo);
             imageView_canteenthumbnail = itemView.findViewById(R.id.imageView_canteenthumbnail);
         }
     }

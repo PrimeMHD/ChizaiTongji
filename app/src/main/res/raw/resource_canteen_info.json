@@ -1,0 +1,32 @@
+[
+  {
+    "CanteenName": "四平·学苑",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "xueyuan1"
+  },
+  {
+    "CanteenName": "四平·北苑",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "beiyuan1"
+  },
+  {
+    "CanteenName": "四平·西北食堂",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "xibei1"
+  },
+  {
+    "CanteenName": "四平·西苑",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "xiyuan1"
+  },
+  {
+    "CanteenName": "四平·三好坞",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "sanhaowu1"
+  },
+  {
+    "CanteenName": "所有食堂",
+    "CanteenInfo": "快来看看吧",
+    "ImageIdString": "ilovetj"
+  }
+]

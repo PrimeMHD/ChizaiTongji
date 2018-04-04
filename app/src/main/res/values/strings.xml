@@ -1,8 +1,27 @@
 <resources>
     <string name="app_name">吃在同济</string>
-
+    <string name="project_packname">chizaitongji.example.com.chizaitongji</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="recommend">推荐</string>
+    <string name="inform">通知</string>
+    <string name="contributes">投稿</string>
+    <string name="favorite">收藏</string>
+    <string name="tobe_construct">正在建设中</string>
+    <string name="no_article">暂无文章</string>
+    <string name="xueyuanbrief">学苑饮食广场是所有食堂中位置最好，交通最便利的食堂啦！每天中午下课这里都会出现如同高中的恐怖队伍（很可怕）！\n
+       不过由于紧邻教学楼和图书馆，这里的人流量始终络绎不绝。</string>
+    <string name="xiyuanbrief">西苑饮食广场位于学校西南片区，食堂设为三层。主要解决西南片区宿舍楼的同学们就餐。西苑的菜品也多种多样，川菜，小炒，灌汤包，能满足来自五湖四海的口味哟~</string>
+    <string name="beiyuanbrief">北苑饮食广场位于西北片区，现在的北苑饮食广场分为两部分，一部分是北苑，另一部分是原来的西北食堂（敲重点）！\n
+       北苑主要供应西北各宿舍同学用餐，当然北苑也是咱们学校众多食堂中的小公举~菜品精致，环境优雅，小编本人非常喜欢~（撒花）</string>
+    <string name="sanhaowubrief">三好坞饮食广场位于留学生宿舍旁边，在学校靠北边的位置。目前三好坞饮食广场由自选部，咖啡吧，清真部组成。
+       值得注意原来的豆腐汤和石锅拌饭现在搬至北苑中点部啦~三好坞自选部现在主要有自选食堂，也可以用来举办宴席（高大上！）~</string>
+    <string name="xibeibrief">西北食堂又名第一食堂，位于四平路校区的西北角，紧邻北苑</string>
+    <string name="dongyuanbrief">东苑饮食广场位于彰武路校区，金工实习的同学会常来这里，学工科的同学注意这里~</string>
+    <string name="nanyuanbrief">东苑饮食广场位于彰武路校区，金工实习的同学会常来这里，学工科的同学注意这里~</string>
+    <string name="ALLCANTEENINFO_URL">http://mp.weixin.qq.com/s/H73Id4_Z8-i5f5RvN_V1RA</string>
+
+
 </resources>

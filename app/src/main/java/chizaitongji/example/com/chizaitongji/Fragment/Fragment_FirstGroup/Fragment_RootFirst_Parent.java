@@ -18,6 +18,7 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import chizaitongji.example.com.chizaitongji.Activity.MainActivity;
 import chizaitongji.example.com.chizaitongji.Fragment.BaseMainFragment;
 import chizaitongji.example.com.chizaitongji.R;
 import chizaitongji.example.com.chizaitongji.Widgets.ImageViewHolder;
@@ -33,7 +34,7 @@ public class Fragment_RootFirst_Parent extends BaseMainFragment {
 
 
     private List<Integer> mImageList = new ArrayList<>();//ConvenientBanner用的图片存在这里
-    private int[] mImages = {R.drawable.iv_a, R.drawable.iv_b, R.drawable.iv_c, R.drawable.iv_d, R.drawable.iv_d};
+    private int[] mImages = {R.drawable.beer};
     private ConvenientBanner mCb;
     private ImageView imageView_nav1, imageView_nav2, imageView_nav3, imageView_nav4;
 
@@ -45,7 +46,12 @@ public class Fragment_RootFirst_Parent extends BaseMainFragment {
         return fragment;
     }
 
-
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        MainActivity mainActivity = (MainActivity) mContext;
+        mainActivity.getToolbar().setTitle("吃在同济");
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -57,10 +63,11 @@ public class Fragment_RootFirst_Parent extends BaseMainFragment {
         imageView_nav2 = (ImageView) v.findViewById(R.id.imageView_nav2);
         imageView_nav3 = (ImageView) v.findViewById(R.id.imageView_nav3);
         imageView_nav4 = (ImageView) v.findViewById(R.id.imageView_nav4);
-        //initCBDatas();
-        //initCBListener();
+        initCBDatas();
+        initCBListener();
         setImageOnClick();
-        Log.d(TAG, "onCreate View");
+
+
         return v;
     }
 
@@ -89,7 +96,7 @@ public class Fragment_RootFirst_Parent extends BaseMainFragment {
 
     public void initCBDatas() {
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             mImageList.add(mImages[i]);
         }
         if (mCb == null || mImageList == null)
@@ -103,7 +110,7 @@ public class Fragment_RootFirst_Parent extends BaseMainFragment {
                 .setPageIndicator(new int[]{R.drawable.ponit_normal, R.drawable.point_select}) //设置两个点作为指示器
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL); //设置指示器的方向水平居中
 
-//        mCb.setCanLoop(true);
+        mCb.setCanLoop(true);
     }
 
     public void setImageOnClick() {

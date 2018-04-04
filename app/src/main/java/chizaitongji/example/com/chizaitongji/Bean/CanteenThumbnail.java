@@ -3,11 +3,14 @@ package chizaitongji.example.com.chizaitongji.Bean;
 public class CanteenThumbnail {
     private String CanteenName;
     private String CanteenInfo;
+    private String ImageIdString;
     private int ImageId;
 
-    public CanteenThumbnail(String canteenName, int imageId) {
+
+    public CanteenThumbnail(String canteenName, String canteenInfo, String imageIdString) {
         CanteenName = canteenName;
-        ImageId = imageId;
+        CanteenInfo = canteenInfo;
+        ImageIdString = imageIdString;
     }
 
     public String getCanteenName() {
@@ -18,12 +21,12 @@ public class CanteenThumbnail {
         CanteenName = canteenName;
     }
 
-    public int getImageId() {
-        return ImageId;
+    public String getImageIdString() {
+        return ImageIdString;
     }
 
-    public void setImageId(int imageId) {
-        ImageId = imageId;
+    public void setImageIdString(String imageIdString) {
+        ImageIdString = imageIdString;
     }
 
     public String getCanteenInfo() {
@@ -32,5 +35,13 @@ public class CanteenThumbnail {
 
     public void setCanteenInfo(String canteenInfo) {
         CanteenInfo = canteenInfo;
+    }
+
+    public int getImageId() {
+        return ImageId;
+    }
+
+    public void setImageId(int imageId) {
+        ImageId = imageId;
     }
 }

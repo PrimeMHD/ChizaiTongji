@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import chizaitongji.example.com.chizaitongji.Activity.MainActivity;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst;
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation.SupportHelper;
 
 public class BaseMainFragment extends SupportFragment {
     protected OnBackToFirstListener _mBackToFirstListener;
@@ -36,6 +38,7 @@ public class BaseMainFragment extends SupportFragment {
      */
     @Override
     public boolean onBackPressedSupport() {
+        Log.d("now", "on back press");
         if (getChildFragmentManager().getBackStackEntryCount() > 1) {
             popChild();
             Log.d("NOW_pop", getChildFragmentManager().getBackStackEntryCount() + "");

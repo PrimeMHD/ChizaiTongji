@@ -18,20 +18,21 @@
             layout="@layout/app_bar_main"
             android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:layout_alignParentTop="true" />
 
         <FrameLayout
             android:id="@+id/layFrame"
             android:layout_below="@id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/bottombar_height" />
 
 
         <com.ashokvarma.bottomnavigation.BottomNavigationBar
             android:id="@+id/bottomNavigationBar"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/bottombar_height"
             android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
