@@ -2,12 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="chizaitongji.example.com.chizaitongji.Fragment.Fragment_ThirdGroup.Fragment_RootThird">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="this is comm" />
+        android:text="广场施工中"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:textSize="36sp" />
+
+    <ImageView
+        android:layout_marginTop="175dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/todo" />
 
 </FrameLayout>

@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">关于App</string>
     <string name="recommend">推荐</string>
     <string name="inform">通知</string>
     <string name="contributes">投稿</string>

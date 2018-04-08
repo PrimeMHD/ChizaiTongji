@@ -8,39 +8,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <com.bigkoo.convenientbanner.ConvenientBanner
-            android:id="@+id/convenientBanner"
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="195dp"
-            app:canLoop="true" />
+            app:image_scale_type="fit_xy" />
 
-        <TextView
-            android:id="@+id/notification_bar"
+        <!--<com.bigkoo.convenientbanner.ConvenientBanner-->
+        <!--android:id="@+id/convenientBanner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="195dp"-->
+        <!--android:gravity="center"-->
+        <!--app:canLoop="true" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/notification_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_below="@id/banner"-->
+        <!--android:text="热点新闻:"-->
+        <!--android:textSize="22sp"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_marginStart="5dp"-->
+        <!--android:layout_marginEnd="5dp"-->
+        <!--android:background="@drawable/cirsquare_redpad" />-->
+        <ViewFlipper
+            android:id="@+id/marquee_view"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor="@color/colorTextBlack"
-            android:layout_below="@id/convenientBanner"
-            android:text="热点新闻:"
-            android:textSize="24sp"
+            android:layout_height="35dp"
+            android:layout_below="@id/banner"
+            android:layout_gravity="center_vertical"
             android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/cirsquare_greypad" />
+            android:background="@drawable/cirsquare_redpad"
+            android:autoStart="true"
+            android:flipInterval="2500"
+            android:inAnimation="@anim/anim_marquee_in"
+            android:outAnimation="@anim/anim_marquee_out"></ViewFlipper>
+
         <ImageView
             android:id="@+id/imageView_nav1"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
+            android:layout_width="175dp"
+            android:layout_height="117dp"
             android:layout_alignParentStart="true"
-            android:layout_below="@id/notification_bar"
+            android:layout_below="@id/marquee_view"
             android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
             android:src="@drawable/imageview_nav1" />
 
         <ImageView
             android:id="@+id/imageView_nav2"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
+            android:layout_width="175dp"
+            android:layout_height="117dp"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@id/imageView_nav1"
             android:layout_marginEnd="5dp"
@@ -48,8 +69,8 @@
 
         <ImageView
             android:id="@+id/imageView_nav3"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
+            android:layout_width="175dp"
+            android:layout_height="117dp"
             android:layout_alignParentStart="true"
             android:layout_below="@id/imageView_nav1"
             android:layout_marginStart="5dp"
@@ -58,8 +79,8 @@
 
         <ImageView
             android:id="@+id/imageView_nav4"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
+            android:layout_width="175dp"
+            android:layout_height="117dp"
             android:layout_marginTop="10dp"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/imageView_nav2"

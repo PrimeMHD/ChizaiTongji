@@ -6,6 +6,7 @@ import android.util.Log;
 
 import chizaitongji.example.com.chizaitongji.Activity.MainActivity;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst;
+import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst_Parent;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation.SupportHelper;
 
@@ -44,9 +45,10 @@ public class BaseMainFragment extends SupportFragment {
             Log.d("NOW_pop", getChildFragmentManager().getBackStackEntryCount() + "");
         } else {
             Log.d("NOW", getChildFragmentManager().getBackStackEntryCount() + "");
-            if (this instanceof Fragment_RootFirst) {   // 如果是 第一个Fragment 则退出app
+            if (this instanceof Fragment_RootFirst || this instanceof Fragment_RootFirst_Parent) {   // 如果是 第一个Fragment 则退出app
                 _mActivity.finish();
             } else {                                    // 如果不是,则回到第一个Fragment
+                Log.d("现在", "back to first frag");
                 _mBackToFirstListener.onBackToFirstFragment();
             }
         }

@@ -18,6 +18,7 @@ import java.util.Locale;
 
 import chizaitongji.example.com.chizaitongji.Bean.ArticleThumbnail;
 import chizaitongji.example.com.chizaitongji.Bean.CanteenThumbnail;
+import chizaitongji.example.com.chizaitongji.Bean.Notification;
 import chizaitongji.example.com.chizaitongji.Bean.SubCanteenInfo;
 import chizaitongji.example.com.chizaitongji.R;
 
@@ -129,4 +130,28 @@ public class JsonUtil {
         return list;
 
     }
+
+    public static List<Notification> getNotifications(Context context) {
+        InputStream is = context.getResources().openRawResource(R.raw.notification);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String json = writer.toString();
+        final List<Notification> list;
+        list = new Gson().fromJson(json, new TypeToken<List<Notification>>() {
+        }.getType());
+        return list;
+    }
+
+
 }

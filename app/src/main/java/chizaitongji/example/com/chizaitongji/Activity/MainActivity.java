@@ -17,10 +17,12 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import chizaitongji.example.com.chizaitongji.Fragment.BaseMainFragment;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst_Parent;
+import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst_SonFourth;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_SecondGroup.Fragment_RootSecond_Parent;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_ThirdGroup.Fragment_RootThird;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_FirstGroup.Fragment_RootFirst;
 import chizaitongji.example.com.chizaitongji.Fragment.Fragment_SecondGroup.Fragment_RootSecond;
+import chizaitongji.example.com.chizaitongji.Fragment.InfoFragment;
 import chizaitongji.example.com.chizaitongji.R;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportActivity;
@@ -33,9 +35,11 @@ public class MainActivity extends SupportActivity
     private static final int FIRST = 0;
     private static final int SECOND = 1;
     private static final int THIRD = 2;
+    private static final int FOURTH = 3;
+
     private BottomNavigationBar bottomNavigationBar;
     private FragmentManager fragmentManager;
-    private SupportFragment[] mFragments = new SupportFragment[3];
+    private SupportFragment[] mFragments = new SupportFragment[4];
     private Toolbar toolbar;
     int curFragment = FIRST;
     int prePosition = FIRST;
@@ -54,11 +58,13 @@ public class MainActivity extends SupportActivity
             mFragments[FIRST] = Fragment_RootFirst.newInstance();
             mFragments[SECOND] = Fragment_RootSecond.newInstance();
             mFragments[THIRD] = Fragment_RootThird.newInstance();
-
+            mFragments[FOURTH] = InfoFragment.newInstance();
             loadMultipleRootFragment(R.id.layFrame, FIRST,
                     mFragments[FIRST],
                     mFragments[SECOND],
-                    mFragments[THIRD]
+                    mFragments[THIRD],
+                    mFragments[FOURTH]
+
             );
         } else {
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
@@ -67,6 +73,8 @@ public class MainActivity extends SupportActivity
             mFragments[FIRST] = first_root_Fragment;
             mFragments[SECOND] = findFragment(Fragment_RootSecond.class);
             mFragments[THIRD] = findFragment(Fragment_RootThird.class);
+            mFragments[FOURTH] = findFragment(InfoFragment.class);
+
 
         }
         initView();
@@ -102,6 +110,11 @@ public class MainActivity extends SupportActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            curFragment = FOURTH;
+            showHideFragment(mFragments[curFragment], mFragments[prePosition]);
+            //Log.d("NOW", "switch from" + prePosition + "to" + curFragment);
+            SupportHelper.logFragmentStackHierarchy(MainActivity.this, TAG);
+            prePosition = curFragment;
             return true;
         }
 
@@ -125,6 +138,11 @@ public class MainActivity extends SupportActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+            curFragment = FOURTH;
+            showHideFragment(mFragments[curFragment], mFragments[prePosition]);
+            //Log.d("NOW", "switch from" + prePosition + "to" + curFragment);
+            SupportHelper.logFragmentStackHierarchy(MainActivity.this, TAG);
+            prePosition = curFragment;
 
         }
 
@@ -158,8 +176,8 @@ public class MainActivity extends SupportActivity
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_dashboard_black_24dp, "美食").setActiveColorResource(R.color.colorPrimary))//.setBadgeItem(badgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, "资讯").setActiveColorResource(R.color.colorPrimary))
-                .addItem(new BottomNavigationItem(R.drawable.ic_notifications_black_24dp, "广场").setActiveColorResource(R.color.colorPrimary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_notifications_black_24dp, "资讯").setActiveColorResource(R.color.colorPrimary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, "广场").setActiveColorResource(R.color.colorPrimary))
                 .setFirstSelectedPosition(0)
                 .initialise();
 
@@ -168,8 +186,8 @@ public class MainActivity extends SupportActivity
             public void onTabSelected(int position) {
                 curFragment = position;
                 showHideFragment(mFragments[position], mFragments[prePosition]);
-                Log.d("NOW", "switch from" + prePosition + "to" + curFragment);
-                SupportHelper.logFragmentStackHierarchy(MainActivity.this, TAG);
+                //Log.d("NOW", "switch from" + prePosition + "to" + curFragment);
+                //SupportHelper.logFragmentStackHierarchy(MainActivity.this, TAG);
                 prePosition = position;
 
 
@@ -210,6 +228,11 @@ public class MainActivity extends SupportActivity
     @Override
     public void onBackToFirstFragment() {
         bottomNavigationBar.selectTab(FIRST);
+        curFragment = FIRST;
+        showHideFragment(mFragments[curFragment], mFragments[prePosition]);
+        //Log.d("NOW", "switch from" + prePosition + "to" + curFragment);
+        //SupportHelper.logFragmentStackHierarchy(MainActivity.this, TAG);
+        prePosition = curFragment;
     }
 
     @Override
